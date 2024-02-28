@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cliente
 
 # Create your views here.
@@ -24,3 +24,8 @@ def list(request):
 
     clientes = Cliente.objects.all()
     return render(request, 'paginas/list.html', {'list': clientes})
+
+def delete(request, id_cliente):
+    cliente = Cliente.objects.get(id_cliente=id_cliente)
+    cliente.delete()
+    return redirect('/list')

@@ -21,4 +21,6 @@ urlpatterns = [
     path('', views.cad, name='cad'),
 
     path('list/', views.list, name='list'),
+
+    path('delete/<int:id_cliente>', views.delete, name='delete'),
 ]

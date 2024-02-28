@@ -10,15 +10,19 @@
             <th>E-Mail</th>
             <th>Plano</th>
             <th>Data de Adesão</th>
+            <th>Ações</th>
         </tr>
         {% for cliente in list %}
         <tr>
-            <td>{{cliente.id_cliente}}</td>
+            <th>{{cliente.id_cliente}}</th>
             <td>{{cliente.nome}}</td>
             <td>{{cliente.cpf}}</td>
             <td>{{cliente.email}}</td>
             <td>{{cliente.plano}}</td>
             <td>{{cliente.adesao}}</td>
+            <td>
+                <a href="/delete/{{ cliente.id_cliente }}" class="btn btn-outline-danger btn-sm">Excluir</a>
+            </td>
         </tr>
         {% endfor %}
     </table>
