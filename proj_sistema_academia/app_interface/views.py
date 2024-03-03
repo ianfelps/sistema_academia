@@ -29,3 +29,23 @@ def delete(request, id_cliente):
     cliente = Cliente.objects.get(id_cliente=id_cliente)
     cliente.delete()
     return redirect('/list')
+
+def update(request, id_cliente):
+  cliente = Cliente.objects.get(id_cliente=id_cliente)
+  return render(request, 'paginas/update.html', {'cliente': cliente})
+  
+def updaterecord(request, id_cliente):
+    nome = request.POST.get('nome')
+    cpf = request.POST.get('cpf')
+    email = request.POST.get('email')
+    plano = request.POST.get('plano')
+    adesao = request.POST.get('adesao')
+
+    cliente = Cliente.objects.get(id_cliente=id_cliente)
+    cliente.nome = nome
+    cliente.cpf = cpf
+    cliente.email = email
+    cliente.plano = plano
+    cliente.adesao = adesao
+    cliente.save()
+    return redirect('/list')

@@ -21,6 +21,8 @@
             <td>{{cliente.plano}}</td>
             <td>{{cliente.adesao}}</td>
             <td>
+                <a href="/update/{{ cliente.id_cliente }}" class="btn btn-outline-primary btn-sm">Editar</a>
+                
                 <a href="/delete/{{ cliente.id_cliente }}" class="btn btn-outline-danger btn-sm">Excluir</a>
             </td>
         </tr>

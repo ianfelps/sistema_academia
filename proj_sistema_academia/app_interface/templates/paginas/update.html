@@ -1,0 +1,40 @@
+{% extends 'paginas/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h1 class="text-center">Editar Dados</h1><br>
+    <form class="row g-3" action="updaterecord/{{ cliente.id_cliente }}" method="post">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="name" class="form-label">Nome:</label>
+            <input name="nome" type="text" class="form-control" id="name" required value="{{ cliente.nome }}">
+        </div>
+        <div class="col-md-6">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input name="cpf" type="number" class="form-control" id="cpf" required value="{{ cliente.cpf }}">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="e-mail">E-mail:</label>
+            <div class="input-group">
+                <div class="input-group-text">@</div>
+                <input name="email" type="email" class="form-control" id="e-mail" required value="{{ cliente.email }}">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Plano:</label>
+            <select name="plano" id="inputState" class="form-select" required>
+                <option> </option>
+                <option {% if cliente.plano == "Plano Bronze" %} selected {% endif %}>Plano Bronze</option>
+                <option {% if cliente.plano == "Plano Prata" %} selected {% endif %}>Plano Prata</option>
+                <option {% if cliente.plano == "Plano Ouro" %} selected {% endif %}>Plano Ouro</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="data" class="form-label">Data de adesão:</label>
+            <input name="adesao" type="date" class="form-control" id="data" required value="{{ cliente.adesao|date:'Y-m-d' }}">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
