@@ -26,3 +26,30 @@ Este é um sistema básico (CRUD) para controle de clientes de uma academia, des
 
 ### Formulário de Edição
 ![Formulário de Edição](preview/p3.png)
+
+## Instalação
+
+Certifique-se de ter o Python 3.7 ou superior instalado em sua máquina.
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/ianfelps/sistema_academia.git
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Execução
+
+Para executar o sistema, use o seguinte comando:
+
+```bash
+cd proj_sistema_academia
+python manage.py runserver
+```
+
+O sistema estará disponível localmente em `http://localhost:8000`.
